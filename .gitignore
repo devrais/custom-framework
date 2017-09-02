@@ -1,0 +1,5 @@
+# phpstorm project files
+.idea
+
+# ignore database_inputs
+/config/database_inputs.php
