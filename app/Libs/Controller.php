@@ -22,21 +22,22 @@ class Controller
 
     private function loadModel($name)
     {
-        $path = 'models/'.$name.'_model.php';
-
-        if (file_exists($path)) {
-            require 'models/'.$name.'_model.php';
-
-            $modelName = ucfirst($name) . '_Model';
-            $this->model = new $modelName();
-            return $this->model;
+        $model = 'App\Models\\'.$name.'Model';
+        if(class_exists($model)){
+            $this->model = new $model();
+            return true;
         }else{
             (new FailController())->displayError('This model does not exist');
+            return false;
         }
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     */
     public function getModel($name){
-
-        return $this->loadModel($name);
+        $this->loadModel($name);
+        return $this->model;
     }
 }

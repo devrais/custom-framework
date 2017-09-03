@@ -2,13 +2,16 @@
 
 namespace App\Libs;
 
+use App\Configuration\DatabaseConfiguration;
+
 class Model {
 
-    private $conn;
+    protected $conn;
+    public $errorHandler;
 
     public function __construct()
     {
-        $this->conn = (new Database())->getConnection();
+        $this->conn = (new DatabaseConfiguration())->getConnection();
     }
 
     public function getConnection(){
