@@ -10,8 +10,8 @@ class View {
 
     public function render($viewPath){
 
-        require 'views/header.php';
-        require $viewPath;
+        require_once 'views/header.php';
+        require_once $viewPath;
         return true;
     }
 }
