@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Libs;
+
 class View {
 
     public function __construct()

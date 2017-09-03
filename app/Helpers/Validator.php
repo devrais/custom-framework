@@ -1,13 +1,15 @@
 <?php
 
-require 'controllers/fail.php';
+namespace App\Helpers;
+
+use App\Controllers\FailController;
 
 class Validator
 {
 
     protected function getErrorHandler()
     {
-        return new Fail();
+        return new FailController();
     }
 
     public function processUrl($url)
@@ -23,11 +25,9 @@ class Validator
 
     public function validateController($url)
     {
-        $file = 'controllers/' . $url . '.php';
-
-        if (file_exists($file)) {
-            require $file;
-            return new $url();
+        $file = 'App\Controllers\\'.ucfirst($url).'Controller';
+        if (class_exists($file)) {
+            return new $file();
         } else {
             $this->getErrorHandler()->absentController($url);
             return false;
@@ -43,7 +43,7 @@ class Validator
 
                // Count the number of parameters needed for method
                 //Can be zero
-                if((new ReflectionMethod($controller,$method))->getNumberOfParameters() > 0 && $parameter == ""){
+                if((new \ReflectionMethod($controller,$method))->getNumberOfParameters() > 0 && $parameter == ""){
                     $this->getErrorHandler()->unsetParameter();
                     return false;
                 }
@@ -54,12 +54,6 @@ class Validator
         }
 
         $this->getErrorHandler()->unsetMethod();
-
         return false;
-    }
-
-    public function validateMethodParameter()
-    {
-
     }
 }

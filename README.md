@@ -5,19 +5,21 @@ Some readme text
 Add this file to /config folder
 
 ```php
-class DBInputs{
+namespace App\Configuration;
 
-    CONST HOST = "";
-    CONST DB_NAME = "";
-    CONST USER = "";
-    CONST PASSWORD = "";
+class InputsConfiguration {
+
+    CONST HOST = "localhost";
+    CONST DB_NAME = "TemplateDatabase";
+    CONST USER = "user1";
+    CONST PASSWORD = "DevraisUser1";
 
     /**
      * @return string
      */
     public static function getHost(){
 
-        return DBInputs::HOST;
+        return InputsConfiguration::HOST;
     }
 
     /**
@@ -25,7 +27,7 @@ class DBInputs{
      */
     public static function getDbName()
     {
-        return DBInputs::DB_NAME;
+        return InputsConfiguration::DB_NAME;
     }
 
     /**
@@ -33,7 +35,7 @@ class DBInputs{
      */
     public static function getUsername()
     {
-        return DBInputs::USER;
+        return InputsConfiguration::USER;
     }
 
     /**
@@ -41,7 +43,8 @@ class DBInputs{
      */
     public static function getPassword()
     {
-        return DBInputs::PASSWORD;
+        return InputsConfiguration::PASSWORD;
     }
+
 }
 ```

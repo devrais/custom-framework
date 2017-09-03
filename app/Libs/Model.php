@@ -1,6 +1,6 @@
 <?php
 
-require 'config/Database.php';
+namespace App\Libs;
 
 class Model {
 

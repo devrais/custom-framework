@@ -1,8 +1,8 @@
 <?php
 
-require 'database_inputs.php';
+namespace App\Configuration;
 
-class Database {
+class DatabaseConfiguration {
 
     public $conn;
 
@@ -12,9 +12,9 @@ class Database {
         $this->conn = null;
 
         try{
-            $this->conn = new PDO("mysql:host=" . DBInputs::HOST. "dbname=" . DBInputs::DB_NAME, DBInputs::USER, DBInputs::PASSWORD);
+            $this->conn = new \PDO("mysql:host=" . InputsConfiguration::HOST. "dbname=" . InputsConfiguration::DB_NAME, InputsConfiguration::USER, InputsConfiguration::PASSWORD);
             $this->conn->exec("set names utf8");
-        }catch(PDOException $exception){
+        }catch(\PDOException $exception){
             echo "Connection error: " . $exception->getMessage();
         }
 

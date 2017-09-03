@@ -1,6 +1,10 @@
 <?php
 
-class Help extends Controller {
+namespace App\Controllers;
+
+use App\Libs\Controller;
+
+class HelpController extends Controller {
 
     public function __construct()
     {

@@ -1,6 +1,10 @@
 <?php
 
-class Fail extends Controller{
+namespace App\Controllers;
+
+use App\Libs\Controller;
+
+class FailController extends Controller{
 
     public function __construct()
     {

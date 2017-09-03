@@ -1,7 +1,9 @@
 <?php
 
-require 'controllers/index.php';
-require 'helpers/Validator.php';
+namespace App\Libs;
+
+use App\Helpers\Validator;
+use App\Controllers\IndexController;
 
 class Loader
 {
@@ -20,6 +22,7 @@ class Loader
 
     public function __construct()
     {
+
         $this->validator = new Validator();
 
         // Get url parameters
@@ -35,7 +38,7 @@ class Loader
         // Also if we state index in the url
 
         if (empty($url[0]) || $url[0] == 'index') {
-            $controller = new Index();
+            $controller = new IndexController();
             $controller->index();
             return false;
         }
@@ -58,7 +61,5 @@ class Loader
 
         $this->executeMethod($controller, $method, $parameter);
         return true;
-
     }
-
 }

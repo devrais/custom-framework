@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Libs;
+
+use App\Controllers\FailController;
+
 class Controller
 {
     private $view;
@@ -27,7 +31,7 @@ class Controller
             $this->model = new $modelName();
             return $this->model;
         }else{
-            (new Fail())->displayError('This model does not exist');
+            (new FailController())->displayError('This model does not exist');
         }
     }
 
