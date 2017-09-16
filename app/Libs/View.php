@@ -4,6 +4,9 @@ namespace App\Libs;
 
 class View {
 
+    public $data;
+    public $id;
+
     public function __construct()
     {
     }

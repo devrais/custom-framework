@@ -12,7 +12,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($this->clients as $key => $client) { ?>
+            <?php foreach ($this->data as $key => $client) { ?>
                 <tr>
                     <td><?= $client['name'] ?></td>
                     <td><?= $client['text'] ?></td>
