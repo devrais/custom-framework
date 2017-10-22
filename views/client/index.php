@@ -17,12 +17,13 @@
                     <td><?= $client['name'] ?></td>
                     <td><?= $client['text'] ?></td>
                     <td><?= $client['created_at'] ?></td>
-                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-                        <a href="#"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <td><a href=<?php echo \App\Helpers\Config::URL . 'client/update/'.$client['id']?>><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href=<?php echo \App\Helpers\Config::URL . 'client/delete/'.$client['id']?>><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href=<?php echo \App\Helpers\Config::URL . 'client/view/'.$client['id']?>><span class="glyphicon glyphicon-eye-open"></span></a>
                     </td>
                 </tr>
             <?php } ?>
             </tbody>
         </table>
     </div>
+</div>

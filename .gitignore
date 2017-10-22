@@ -6,3 +6,6 @@
 
 # ignore vendor files
 /vendor
+
+# netbeans project files
+/nbproject

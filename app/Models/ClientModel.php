@@ -149,9 +149,18 @@ class ClientModel extends Model
 
     }
 
-    public function deleteClient($id)
-    {
+    public function deleteClient($id) {
+        $query = "DELETE FROM client WHERE id=:id";
+        $stmt = $this->conn->prepare($query);
 
+        $stmt->bindValue("id", $id);
+
+        if (!$stmt->execute()) {
+            $this->errorHandler->displayError("Failed to delete client with ID = ". $id );
+            return false;
+        }
+        
+        return true;
     }
 
     public function viewClientDetails($id)

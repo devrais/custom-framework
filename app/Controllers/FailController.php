@@ -34,11 +34,16 @@ class FailController extends Controller{
     public function unsetParameter(){
         echo 'You need to add a parameter';
     }
+    
+    public function zeroParameter(){
+        echo "You can't use value 0 for a parameter";
+    }
 
     public function displayError($message){
 
-        ($this->getView())->message = $message;
-        $this->getView()->render('views/error/index.php');
-        return false;
+        $view = $this->getView();
+        $view->message = $message;
+        $view->render('views/error/index.php');
+        exit();
     }
 }

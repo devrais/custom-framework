@@ -47,6 +47,11 @@ class Validator
                     $this->getErrorHandler()->unsetParameter();
                     return false;
                 }
+                
+                if($parameter == '0'){
+                    $this->getErrorHandler()->zeroParameter();
+                    return false;
+                }
                 return true;
             }
             $this->getErrorHandler()->absentMethod($method);

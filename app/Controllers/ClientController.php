@@ -59,7 +59,10 @@ class ClientController extends Controller
             $this->getView()->render('views/client/view.php');
             return true;
         }
-
+        
+       /* echo 'here';
+        die();*/
+        
         $this->getView()->data = $model->viewClientDetails($id);
         $this->getView()->render('views/client/update.php');
         return true;
@@ -68,7 +71,13 @@ class ClientController extends Controller
 
     public function delete($id)
     {
-
+        $model = $this->getModel('Client');
+        
+        if($model->deleteClient($id)){
+            $this->index();
+        }
+        
+        return true;
     }
 
     public function view($id)
